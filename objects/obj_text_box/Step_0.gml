@@ -9,8 +9,10 @@ if(active)
 
     // Para capturar a tecla Enter ou outra tecla específica
 	if (keyboard_check_pressed(vk_enter))
-		adicionar_texto_digitado_na_variavel_desejada();
-	
+    {
+        adicionar_texto_digitado_na_variavel_desejada();
+        text = "";
+    }
 	var _largura_texto = string_width(text);
 	// Se o texto for maior que a caixa, ajusta o deslocamento
 	if (_largura_texto > largura_caixa - margem_texto * 2) {

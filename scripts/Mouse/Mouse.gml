@@ -5,3 +5,11 @@ function posicao_igual_posicao_sprite(_x, _y, _x2, _y2)
 	draw_rectangle_color(_x, _y, _x2, _y2, c_white, c_white, c_white, c_white,true);
 	return point_in_rectangle(_mouse_x,_mouse_y, _x, _y, _x2, _y2);
 }
+
+function mouse_on_area(pos_x, pos_y, _x, _y)
+{
+    var mouse_pos_x = device_mouse_x_to_gui(0);
+    var mouse_pos_y  = device_mouse_y_to_gui(0);
+    draw_rectangle(pos_x, pos_y, _x, _y, true);
+    return point_in_rectangle(mouse_pos_x, mouse_pos_y, pos_x, pos_y, _x, _y);
+}

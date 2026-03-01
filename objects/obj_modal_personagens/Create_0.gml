@@ -1,12 +1,17 @@
 event_inherited();
 
 top_color = c_red;
+color_btn_remove = c_white;
 definir_cor_top_modal(top_color);
 personagens = [];
-array_foreach(global.save_file.personagens, function(_element)
+if(global.save_file != noone)
 {
-	array_push(personagens, _element);
-});
+	array_foreach(global.save_file.personagens, function(_element)
+	{
+		array_push(personagens, _element);
+	});
+}
+
 is_node_other_modal = false;
 
 modal_min_height = 240; // Altura mínima do modal
@@ -36,6 +41,7 @@ function alterar_posicao_text_box()
 		text_box_obj.y_pos = modal_y + 20;
 		text_box_pos_y = text_box_obj.y_pos;
 		text_box_obj.visible = !is_minimized;
+        text_box_obj.exibir_texto_continuamente = false;
 	}
 }
 
@@ -43,6 +49,7 @@ function deletar_personagem_selecionado_por_index(_posicao, _lista_personagens, 
 {
 	if(posicao_do_mouse_igual_posicao_sprite(modal_x + 250, modal_y + _y_pos,modal_x + 282, modal_y + _y_pos + 32 ))
 	{
+        color_btn_remove = c_red;
 		if(mouse_check_button_released(mb_left))
 		{
 			array_delete(_lista_personagens, _posicao, 1);

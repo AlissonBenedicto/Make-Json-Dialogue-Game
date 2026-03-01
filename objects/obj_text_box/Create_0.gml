@@ -43,7 +43,10 @@ function ativar_desativar_text_box()
 		}
 		else 
 		{
-			adicionar_texto_digitado_na_variavel_desejada();
+            if(exibir_texto_continuamente)
+            {
+                adicionar_texto_digitado_na_variavel_desejada();
+            }
 			active = false; // Desativa o textBox se clicar fora dele
 		}
 	}
